@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Sattvicly - Recipe Details</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Local styles for recipe card layout */
+        .recipe-card-container {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #fdf6ee;
+        }
+        .recipe-card {
+            background: #fffdf9;
+            border-radius: 16px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            padding: 36px 28px 28px 28px;
+            max-width: 400px;
+            width: 90vw;
+            text-align: left;
+            color: #2f3e2f;
+            display: flex;
+            flex-direction: column;
+            align-items: stretch;
+        }
+        .recipe-card h1 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            text-align: center;
+        }
+        .recipe-card h2 {
+            font-size: 1.1rem;
+            font-weight: 500;
+            color: #405e3c;
+            margin-bottom: 0.5rem;
+            text-align: center;
+        }
+        .recipe-card .subtitle {
+            font-size: 1rem;
+            color: #6b6b6b;
+            margin-bottom: 1.2rem;
+            text-align: center;
+        }
+        .recipe-card ul, .recipe-card ol {
+            margin-left: 1.2rem;
+            margin-bottom: 1.2rem;
+        }
+        .recipe-card h3 {
+            font-size: 1.05rem;
+            margin-top: 1.2rem;
+            margin-bottom: 0.5rem;
+            color: #405e3c;
+        }
+        .recipe-card .back-button {
+            margin-top: 1.5rem;
+            padding: 12px 0;
+            background: #405e3c;
+            color: #fff;
+            border: none;
+            border-radius: 12px;
+            font-size: 1rem;
+            cursor: pointer;
+            width: 100%;
+            transition: background 0.2s;
+        }
+        .recipe-card .back-button:hover {
+            background: #2f3e2f;
+        }
+        @media (max-width: 480px) {
+            .recipe-card {
+                padding: 18px 6vw 18px 6vw;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="recipe-card-container">
+        <div class="recipe-card" id="recipeCard">
+            <!-- Recipe content will be injected here -->
+        </div>
+    </div>
+    <script>
+    // Minimal sattvic recipes database
+    const recipes = {
+        breakfast: {
+            title: '📖 Ragi Porridge Recipe',
+            subtitle: '🌞 Sattvic Breakfast',
+            desc: 'An energizing start to your day made with wholesome ingredients.',
+            ingredients: [
+                '1/4 cup Ragi flour',
+                '1.5 cups water',
+                '1 tbsp jaggery (or to taste)',
+                '1/4 tsp cardamom powder',
+                '1/2 cup warm milk (optional)'
+            ],
+            instructions: [
+                'Mix ragi flour with 1/2 cup water to form a smooth slurry.',
+                'Boil 1 cup water in a pan. Add the slurry gradually while stirring.',
+                'Cook on low flame for 5–6 minutes until it thickens.',
+                'Add jaggery and stir well to dissolve. Mix in cardamom powder.',
+                'Optional: Add warm milk before serving for creaminess.'
+            ]
+        },
+        lunch: {
+            title: '📖 Mixed Veg Kitchari',
+            subtitle: '🌿 Sattvic Lunch',
+            desc: 'A nourishing blend of moong dal, rice, and seasonal vegetables.',
+            ingredients: [
+                '1/2 cup moong dal',
+                '1/2 cup rice',
+                '2 cups mixed vegetables (carrot, beans, peas, etc.)',
+                '1 tsp cumin seeds',
+                '1/2 tsp turmeric',
+                '1 tbsp ghee',
+                'Salt to taste',
+                '4 cups water'
+            ],
+            instructions: [
+                'Wash dal and rice. Heat ghee in a pot, add cumin seeds.',
+                'Add vegetables, turmeric, and sauté for 2 min.',
+                'Add dal, rice, salt, and water. Bring to boil.',
+                'Simmer covered for 25–30 min until soft and porridge-like.'
+            ]
+        },
+        dinner: {
+            title: '📖 Lemon Rice with Steamed Veggies',
+            subtitle: '🌙 Sattvic Dinner',
+            desc: 'Soothing rice dish with curry leaves and turmeric tempered in ghee.',
+            ingredients: [
+                '1 cup cooked rice',
+                'Juice of 1/2 lemon',
+                '1/2 tsp turmeric',
+                '1 tbsp ghee',
+                '1 tsp mustard seeds',
+                'A few curry leaves',
+                'Salt to taste',
+                'Steamed veggies of choice'
+            ],
+            instructions: [
+                'Heat ghee, add mustard seeds and curry leaves.',
+                'Add turmeric, then rice and salt. Mix well.',
+                'Turn off heat, add lemon juice. Serve with steamed veggies.'
+            ]
+        }
+    };
+
+    // Get meal type from query param
+    function getMealType() {
+        const params = new URLSearchParams(window.location.search);
+        const meal = params.get('meal');
+        return meal && recipes[meal] ? meal : 'breakfast';
+    }
+
+    function renderRecipe(meal) {
+        const recipe = recipes[meal];
+        const card = document.getElementById('recipeCard');
+        card.innerHTML = `
+            <h1>${recipe.title}</h1>
+            <h2>${recipe.subtitle}</h2>
+            <p class="subtitle">${recipe.desc}</p>
+            <h3>Ingredients</h3>
+            <ul>${recipe.ingredients.map(i => `<li>${i}</li>`).join('')}</ul>
+            <h3>Instructions</h3>
+            <ol>${recipe.instructions.map(i => `<li>${i}</li>`).join('')}</ol>
+            <button class="back-button" onclick="window.location.href='page4.html'">🔙 Back to Meal Plan</button>
+        `;
+    }
+
+    document.addEventListener('DOMContentLoaded', function() {
+        renderRecipe(getMealType());
+    });
+    </script>
+</body>
+</html>

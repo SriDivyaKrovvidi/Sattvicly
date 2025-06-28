@@ -1,0 +1,51 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Your Sattvic Meal Plan</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="sattvic-page">
+    <div class="container">
+        <div class="logo">
+            <div class="logo-icon">🌿</div>
+            <h1 class="logo-text">Sattvicly</h1>
+        </div>
+
+        <h2 class="title">Your Personalized 1-Day Sattvic Meal Plan</h2>
+        <p class="subtitle">Crafted based on your mood, ingredients, allergies, and goal</p>
+
+        <div class="meal-card" id="breakfast-card">
+            <h3>🌞 Breakfast: <span id="breakfast-name">Ragi Porridge</span></h3>
+            <p id="breakfast-desc">A light and energizing start made with ragi, jaggery, and cardamom.</p>
+            <div class="meal-actions">
+                <button onclick="refreshMeal('breakfast')">🔁 Refresh</button>
+                <button onclick="viewRecipe('breakfast')">📖 View Recipe</button>
+            </div>
+        </div>
+
+        <div class="meal-card" id="lunch-card">
+            <h3>🌿 Lunch: <span id="lunch-name">Mixed Veg Kitchari</span></h3>
+            <p id="lunch-desc">Sattvic mix of moong dal, rice, and local vegetables for strength and digestion.</p>
+            <div class="meal-actions">
+                <button onclick="refreshMeal('lunch')">🔁 Refresh</button>
+                <button onclick="viewRecipe('lunch')">📖 View Recipe</button>
+            </div>
+        </div>
+
+        <div class="meal-card" id="dinner-card">
+            <h3>🌙 Dinner: <span id="dinner-name">Lemon Rice with Steamed Veggies</span></h3>
+            <p id="dinner-desc">Soothing rice dish with curry leaves and turmeric tempered in ghee.</p>
+            <div class="meal-actions">
+                <button onclick="refreshMeal('dinner')">🔁 Refresh</button>
+                <button onclick="viewRecipe('dinner')">📖 View Recipe</button>
+            </div>
+        </div>
+
+        <button class="continue-btn" onclick="window.location.href='index.html'">Start Over</button>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
