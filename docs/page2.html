@@ -1,0 +1,33 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Enter Ingredients - Sattvicly</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="sattvic-page">
+    <div class="container">
+        <h1 class="title">Enter ingredients you have on hand</h1>
+        <p class="subtitle">E.g., carrots, lentils, turmeric</p>
+        <input type="text" id="ingredients-input" placeholder="Enter ingredients separated by commas" class="text-input" maxlength="500">
+
+        <h2 class="subtitle">Do you have any allergies?</h2>
+        <div class="allergy-buttons">
+            <button class="chip allergy-btn" data-allergy="Dairy">Dairy</button>
+            <button class="chip allergy-btn" data-allergy="Eggs">Eggs</button>
+            <button class="chip allergy-btn" data-allergy="Seafood">Seafood</button>
+            <button class="chip allergy-btn" data-allergy="Peanuts">Peanuts</button>
+            <button class="chip allergy-btn" data-allergy="Mushrooms">Mushrooms</button>
+            <button class="chip allergy-btn" data-allergy="Sesame">Sesame</button>
+            <button class="chip allergy-btn other-btn" data-allergy="Other">Other</button>
+        </div>
+
+        <input type="text" id="other-allergy-input" placeholder="Enter other allergy" class="text-input" style="display: none;" maxlength="100" />
+
+        <button id="continueIngredientsBtn" class="continue-btn" disabled>Continue</button>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
